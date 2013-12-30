@@ -1,11 +1,9 @@
 #!/bin/bash
-bamDir=/users/mjzapata/bamResults/
-bamSortedDir=/scratch/mjzapata/bamResults/sorted/
-samtoolsDir=/apps/pkg/samtools-0.1.18/rhel6_u2-x86_64/gnu/bin/
-sortScriptDir=/users/mjzapata/sortscripts/
 #Bug1: recreate directory or test to see if it exists?
 #Bug2: I don't really understand that regular expression next to outputName
+. wgaconfig.conf
 mkdir ${bamSortedDir}
+mkdir $scripts2Dir
 i=0
 while read line
 do
@@ -20,7 +18,7 @@ arrayLength=${#bamFiles[@]}
 # SORT BAMFILES and store in directory "sorted"
 for ((i=0; i < arrayLength; i++))
 do
-cat > ${sortScriptDir}pbssort_$i << EOF
+cat > ${scripts2Dir}pbssort_$i << EOF
 #!/bin/bash
 #PBS -q viper
 #PBS -N mjzBTRefGenes_subset_${i}

@@ -3,13 +3,8 @@
 #PBS -N mjzSNPCalling
 #PBS -l walltime=10:01:00
 #PBS -l nodes=1
-refFile=/projects/mjzapata/Salmonella_ref/salmonella_chrom_and_plas.fasta
-bamSortedDir=/scratch/mjzapata/bamResults/sorted/
-snpCalledDir=/scratch/mjzapata/snpCalls/
-#GATKdir=/Users/malcolm/Documents/Cluster/Programs/GenomeAnalysisTK27/
-samtoolsDir=/apps/pkg/samtools-0.1.18/rhel6_u2-x86_64/gnu/bin/
-SNPScriptDir=/users/mjzapata/snpscripts/
-mkdir ${SNPScriptDir}
+. wgaconfig.conf
+mkdir ${scripts3Dir}
 mkdir ${snpCalledDir}
 #Feature: add in feature to send a message if file size ends up being 0 bytes
 #Find list of sorted BAMFiles
@@ -25,7 +20,7 @@ arrayLength=${#bamSortedFiles[@]}
 # SORT BAMFILES and store in directory "sorted"
 for ((i=0; i < arrayLength; i++))
 do
-cat > ${SNPScriptDir}pbsSNPcall_$i << EOF
+cat > ${scripts3Dir}pbsSNPcall_$i << EOF
 #!/bin/bash
 #PBS -q viper
 #PBS -N mjzSNPCalling_$i

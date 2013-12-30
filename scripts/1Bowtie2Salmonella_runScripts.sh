@@ -5,17 +5,16 @@
 #PBS -l nodes=20
 . wgaconfig.conf
 
-scripts1Dir=/users/mjzapata/scripts1/
 i=0
 while read line
 do
 myScripts[ $i ]="$line"
 (( i++ ))
-done < <(find ${scriptDir}* -type f -exec basename {} \;)
+done < <(find ${scripts1Dir}* -type f -exec basename {} \;)
 arrayLength=${#myScripts[@]}
 echo $arrayLength " files"
 
 for(( i=0; i<$arrayLength; i++))
 do
-    qsub ${scriptDir}${myScripts[i]}
+    qsub ${scripts1Dir}${myScripts[i]}
 done
