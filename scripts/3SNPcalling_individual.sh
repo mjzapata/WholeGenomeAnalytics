@@ -14,7 +14,7 @@ do
 bamSortedFiles[ $i ]="$line"
 (( i++ ))
 done < <(find ${bamSortedDir}*.bam -type f -exec basename {} \;)
-echo {bamSortedFiles[@]}
+echo ${bamSortedFiles[@]}
 
 arrayLength=${#bamSortedFiles[@]}
 # SORT BAMFILES and store in directory "sorted"
@@ -24,10 +24,13 @@ cat > ${scripts3Dir}pbsSNPcall_$i << EOF
 #!/bin/bash
 #PBS -q viper
 #PBS -N mjzSNPCalling_$i
-#PBS -l walltime=200:01:00
+#PBS -l walltime=5:01:00
 #PBS -l nodes=1
-${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} | ${samtoolsDir}bcftools view -bvcg - > ${snpCalledDir}${bamSortedFiles[i]}.var.raw.bcf
+${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} | ${bcftoolsDir}bcftools view -cg - | perl ${bcftoolsDir}vcfutils.pl vcf2fq > ${snpCalledDir}${bamSortedFiles[i]}.fq
 EOF
 done
 
+#${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} | ${samtoolsDir}bcftools view -bvcg - > ${snpCalledDir}${bamSortedFiles[i]}.var.raw.bcf
+
 #java -Xmx1g -jar ${GATKdir}GenomeAnalysisTK.jar -T RealignerTargetCreator -R ${refFile} -I /data/snp_calling/RAL357_full_bwa.sorted.bam -o RAL357.realign.intervals -L 2L:100000-150000
+#/Users/malcolm/Documents/Cluster/bamResults/sorted/ERR026015.bam.sorted
