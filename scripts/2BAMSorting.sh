@@ -3,7 +3,7 @@
 #Bug2: I don't really understand that regular expression next to outputName
 . wgaconfig.conf
 mkdir ${bamSortedDir}
-mkdir $scripts2Dir
+mkdir ${scripts2Dir}
 i=0
 while read line
 do
@@ -27,7 +27,6 @@ cat > ${scripts2Dir}pbssort_$i << EOF
 ${samtoolsDir}samtools sort $bamDir${bamFiles[i]} $bamSortedDir${bamFiles[i]}.sorted
 EOF
 done
-
 
 #cat > ${sortScriptDir}pbssort_$i << EOF
 #outputName=${bamFiles[i]%.*}

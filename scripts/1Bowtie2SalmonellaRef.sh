@@ -4,12 +4,6 @@
 #PBS -l walltime=0:15:00
 #PBS -l nodes=20
 . wgaconfig.conf
-#inputDir=/projects/mjzapata/salmonella/
-#inputRefDir=/projects/mjzapata/Salmonella_ref/Sal_ChrPlas/Sal_ChrPlas
-#bamDir=/users/mjzapata/bamResults/
-#1scriptDir=/users/mjzapata/scripts/
-#bowtie2Dir=/users/mjzapata/programs/bowtie2-2.1.0/
-#samtoolsDir=/apps/pkg/samtools-0.1.18/rhel6_u2-x86_64/gnu/bin/
 # hack near the bottom, selecting only the first 0:9 characters of the file basename
 # hack change salmonella dir declaration twice
 mkdir $bamDir
