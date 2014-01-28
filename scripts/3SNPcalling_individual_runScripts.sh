@@ -16,5 +16,5 @@ echo $arrayLength " files"
 
 for(( i=0; i<$arrayLength; i++))
 do
-   qsub ${scripts3Dir}${myScripts[i]}
+    qsub ${scripts3Dir}${myScripts[i]}
 done

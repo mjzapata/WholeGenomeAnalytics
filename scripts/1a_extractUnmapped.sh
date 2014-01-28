@@ -4,7 +4,6 @@ mkdir ${scripts1aDir}
 mkdir ${unmappedDir}
 # hack near the bottom, selecting only the first 0:9 characters of the file basename
 # difference between bamResults and Sorted??
-mkdir ${unmappedDir}
 i=0
 while read line
 do
@@ -12,7 +11,7 @@ bamFiles[ $i ]="$line"
 (( i++ ))
 done < <(find ${bamDir}*.bam -type f -exec basename {} \;)
 arrayLength=${#bamFiles[@]}
-echo arrayLength
+echo $arrayLength "files"
 
 #for (( k=0; k < $arrayLength; k++))
 #do
