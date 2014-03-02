@@ -24,9 +24,9 @@ cat > ${scripts3Dir}pbsSNPcall_$i << EOF
 #!/bin/bash
 #PBS -q viper
 #PBS -N mjzSNPCalling_$i
-#PBS -l walltime=15:01:00
+#PBS -l walltime=150:01:00
 #PBS -l nodes=1
-${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} | ${bcftoolsDir}bcftools view -cg - | perl ${bcftoolsDir}vcfutils.pl vcf2fa > ${snpCalledDir}${bamSortedFiles[i]}.fq
+${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} | ${bcftoolsDir}bcftools view -cg - | perl ${bcftoolsDir}vcfutils.pl vcf2fq > ${snpCalledDir}${bamSortedFiles[i]}.fq
 EOF
 done
 

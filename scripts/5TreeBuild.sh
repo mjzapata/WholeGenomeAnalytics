@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q viper
 #PBS -N mjzFastAtoMusc
-#PBS -l walltime=50:01:00
+#PBS -l walltime=300:01:00
 #PBS -l nodes=60
 #*****bug clear the trimmed file first since it is being added to in a loop
 . /users/mjzapata/scripts/wgaconfig.conf
