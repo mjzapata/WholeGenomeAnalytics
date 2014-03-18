@@ -41,7 +41,7 @@ do
 cat > ${scripts1Dir}pbsscript_$i << EOF
 #!/bin/bash
 #PBS -q viper
-#PBS -N mjzBTRefGenes_subset_${i}
+#PBS -N mjzBowTie_${i}
 #PBS -l walltime=5:01:00
 #PBS -l nodes=1
 #module load samtools

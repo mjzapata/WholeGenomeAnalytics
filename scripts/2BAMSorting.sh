@@ -21,7 +21,7 @@ do
 cat > ${scripts2Dir}pbssort_$i << EOF
 #!/bin/bash
 #PBS -q viper
-#PBS -N mjzBTSorting_subset_${i}
+#PBS -N mjzBTSort_${i}
 #PBS -l walltime=5:01:00
 #PBS -l nodes=1
 ${samtoolsDir}samtools sort $bamDir${bamFiles[i]} $bamSortedDir${bamFiles[i]}.sorted
