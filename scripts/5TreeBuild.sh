@@ -52,6 +52,10 @@ do
 done
 ############ make sure same length
 
-
-${programsDir}FastTreeMP -fastest -nt -gtr $trimmed_File > ${mergedFADir}tree
+#${programsDir}FastTreeMP -fastest -nt -gtr $trimmed_File > ${mergedFADir}tree
+${programsDir}FastTreeMP -fastest -nt -gtr $in_File > ${mergedFADir}tree
+# Problems,
+#1.) sequences not the same length
+#2.) Duplicate names
+#3.) Not the same length due to N's not being added to the end of sequences (Can be fixed with program _____??);
 

@@ -30,6 +30,8 @@ ${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} 
 EOF
 done
 
+
+
 #${samtoolsDir}samtools mpileup -uf $refFile ${bamSortedDir}${bamSortedFiles[i]} | ${samtoolsDir}bcftools view -bvcg - > ${snpCalledDir}${bamSortedFiles[i]}.var.raw.bcf
 
 #java -Xmx1g -jar ${GATKdir}GenomeAnalysisTK.jar -T RealignerTargetCreator -R ${refFile} -I /data/snp_calling/RAL357_full_bwa.sorted.bam -o RAL357.realign.intervals -L 2L:100000-150000
